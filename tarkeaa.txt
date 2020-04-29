@@ -1,0 +1,5 @@
+         File tiedosto = fileChooser.showOpenDialog(primaryStage);
+            String kokoPolku = tiedosto.getAbsolutePath();
+            fileHandler.setTekstiTiedosto(kokoPolku);
+            textArea.setText(fileHandler.openFile());
+            System.out.println(fileHandler.getTekstiTiedosto());
