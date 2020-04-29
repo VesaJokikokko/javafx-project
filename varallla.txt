@@ -1,0 +1,15 @@
+         BufferedReader objReader = null;
+            File selectedFile = fileChooser.showOpenDialog(primaryStage);
+            try {
+                String strCurrentLine;
+
+                objReader = new BufferedReader(new FileReader(selectedFile));
+
+                while ((strCurrentLine = objReader.readLine()) != null) {
+
+                    fileHandler.setTekstiTiedosto(strCurrentLine);
+                }
+
+            } catch (IOException err) {
+
+                err.printStackTrace();

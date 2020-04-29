@@ -44,7 +44,7 @@ public class FileHandler {
     }
 
     public String getTekstiTiedosto() {
-        return tekstiTiedosto;
+        return this.tekstiTiedosto;
     }
 
     public void setTekstiTiedosto(String tekstiTiedosto) {

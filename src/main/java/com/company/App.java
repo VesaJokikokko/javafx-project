@@ -5,7 +5,8 @@ import javafx.application.Application;
 
 import java.io.File;
 import java.io.IOException;
-
+import java.io.BufferedReader;
+import java.io.FileReader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -19,6 +20,7 @@ import javafx.stage.Stage;
 
 public class App extends Application {
     private FileHandler fileHandler;
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -26,6 +28,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         fileHandler = new FileHandler();
+
         primaryStage.setTitle("JavaFX App");
 
         MenuBar menuBar = new MenuBar();
@@ -50,13 +53,19 @@ public class App extends Application {
         menuBar.getMenus().add(menu2);
         menuBar.getMenus().add(menu3);
         FileChooser fileChooser = new FileChooser();
+
+
+    public String(kojetusmenu){
         menuItem2.setOnAction(e -> {
 
-            //FileHandler fh = new FileHandler("c:/Users/javafx-project/src/main/com.company/App.java");
-            fileHandler.setTekstiTiedosto("testi.txt");
-            textArea.setText(fileHandler.openFile());
-
+            fileHandler = new FileHandler();
+            File tiedosto = fileChooser.showOpenDialog(primaryStage);
+            String kokoPolku = tiedosto.getAbsolutePath();
+            fileHandler.setTekstiTiedosto(kokoPolku);
+            return textArea.setText(fileHandler.openFile());
+            
         });
+    }
         menuItem3.setOnAction(e -> {
             fileHandler.setTekstiTiedosto("testi.txt");
             fileHandler.saveFile(textArea.getText());
