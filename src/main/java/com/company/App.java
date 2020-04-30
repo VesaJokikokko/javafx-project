@@ -36,6 +36,7 @@ public class App extends Application {
         public void avaa(ActionEvent event) {
             File tiedosto = App.getFileChooser().showOpenDialog(App.getPrimaryStage());
             String kokoPolku = tiedosto.getAbsolutePath();
+            //String kokoPolku = tiedosto.getAbsolutePath();
             App.getFileHandler().setTekstiTiedosto(kokoPolku);
             App.getTextArea().setText(App.getFileHandler().openFile());
             /*System.out.println(App.getFileHandler().getTekstiTiedosto());
@@ -107,7 +108,7 @@ public class App extends Application {
         textArea = textArea;
 
 
-        primaryStage.setTitle("JavaFX App");
+        primaryStage.setTitle("Vesa Jokikokko Tekstieditori");
 
         MenuBar menuBar = new MenuBar();
 
